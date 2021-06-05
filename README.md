@@ -20,6 +20,8 @@ function isEven(value) {
         return false;
     }
 }
+Constant time, because the number of operations doesn't change based on the input
+
 3. Are you here?
 What is the Big O of the following algorithm? Explain your answer
 
@@ -33,6 +35,9 @@ function areYouHere(arr1, arr2) {
     }
     return false;
 }
+O(n^2) Polynomial Time. For each n element in arr1 we have to perform k operations in arr2.
+
+
 4. Doubler
 What is the Big O of the following algorithm? Explain your answer
 
@@ -42,6 +47,11 @@ function doubleArrayValues(array) {
     }
     return array;
 }
+
+O(n) Linear time. We perform one operation per element in the array, so our operations grow at the same rate as the input.
+
+
+
 5. Naive search
 What is the Big O of the following algorithm? Explain your answer
 
@@ -52,6 +62,9 @@ function naiveSearch(array, item) {
         }
     }
 }
+
+O(n) Linear time. As the array grows, we perform one extra operation for each new element.
+
 6. Creating pairs:
 What is the Big O of the following algorithm? Explain your answer
 
@@ -62,6 +75,9 @@ function createPairs(arr) {
         }
     }
 }
+
+O(n^2) Polynomial time. We loop over the array once for each element in the array. This one is a bit odd because it doesn't loop over the whole array every time. The second loop only performs arr.length / 2 operations.
+
 7. Compute the sequence
 What does the following algorithm do? What is its runtime complexity? Explain your answer
 
@@ -81,6 +97,9 @@ function compute(num) {
     }
     return result;
 }
+
+O(n) Linear time. Adds the previous two answers together, creating a fibbonacci sequence. Returns array of fibonacci sequence arrays with lengths of 1, 2, 3, 4, etc. all the way to num.
+
 8. An efficient search
 In this example, we return to the problem of searching using a more sophisticated approach than in naive search, above. Assume that the input array is always sorted. What is the Big O of the following algorithm? Explain your answer
 
@@ -106,12 +125,18 @@ function efficientSearch(array, item) {
     }
     return -1;
 }
+
+O(log n) because it is using Divide and Conquer to halve the input until it finds the item
+
 9. Random element
 What is the Big O of the following algorithm? Explain your answer
 
 function findRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
+
+O(1) constant time. Accessing an array by index doesn't require any iteration. The computer simply looks at the pointer bound to the array, goes to that memory address, and then grabs the nth element in that array.
+
 10. What Am I?
 What does the following algorithm do? What is the Big O of the following algorithm? Explain your answer
 
@@ -124,6 +149,9 @@ function isWhat(n) {
     }
     return true;
 }
+
+If the number is less than two, or if the number is not an integer, return false. If the number is evenly divisible by any number between 2 and itself, return false. So the function will return true only if the number passed to it is a prime number. The Big O is linear, O(n). As the input grows, the number of operations performed by the for loop grows at the same rate.
+
 11. Tower of Hanoi
 The Tower of Hanoi is a very famous mathematical puzzle (some call it game!). This is how it goes:
 
@@ -142,10 +170,166 @@ Rod A	Rod B	Rod C
 ---------
 -------------
 Derive an algorithm to solve the Tower of Hanoi puzzle.
+
+const rods = {
+    "A": [3,2,1],
+    "B": [],
+    "C": []
+  };
+  let moves = 0;
+  
+  const displayRods = (rods) => {
+    let newRods = Object.keys(rods);
+    newRods.forEach(rod => console.log(rod + ": " + rods[rod]));
+  
+    console.log(`${moves} moves`);
+    moves++;
+    console.log("\n");
+  }
+  displayRods(rods);
+  
+  const towerOfHanoi = (n, sourceRod, destinationRod, bufferRod) => {
+  
+    // Our base case is implicitly when n, the height of our stack of disks, gets down to zero.
+  
+    if (n >= 1) { 
+  
+      towerOfHanoi(n - 1, sourceRod, bufferRod, destinationRod);
+  
+      console.log(`Move disk ${n} from ${sourceRod} to ${destinationRod}`);  
+  
+      rods[bufferRod].push(rods[sourceRod].pop())
+      rods[destinationRod].push(rods[bufferRod].pop())
+  
+      displayRods(rods);
+  
+      towerOfHanoi(n - 1, bufferRod, destinationRod, sourceRod);
+  
+    }
+    return;
+  }
+  towerOfHanoi(3, "A", "C", "B");
+
 Implement your algorithm using recursion. Your program should display each movement of the disk from one rod to another.
+
+//   [Running] node "/Users/aholley/Documents/thinkful/projects/DSA-Big-O/tower-of-hanoi.js"
+// A: 3,2,1
+// B: 
+// C: 
+// 0 moves
+
+
+// Move disk 1 from A to C
+// A: 3,2
+// B: 
+// C: 1
+// 1 moves
+
+
+// Move disk 2 from A to B
+// A: 3
+// B: 2
+// C: 1
+// 2 moves
+
+
+// Move disk 1 from C to B
+// A: 3
+// B: 2,1
+// C: 
+// 3 moves
+
+
+// Move disk 3 from A to C
+// A: 
+// B: 2,1
+// C: 3
+// 4 moves
+
+
+// Move disk 1 from B to A
+// A: 1
+// B: 2
+// C: 3
+// 5 moves
+
+
+// Move disk 2 from B to C
+// A: 1
+// B: 
+// C: 3,2
+// 6 moves
+
+
+// Move disk 1 from A to C
+// A: 
+// B: 
+// C: 3,2,1
+// 7 moves
+
+// [Done] exited with code=0 in 0.047 seconds
+
 If you are given 5 disks, how do the rods look like after 7 recursive calls?
+
+A: 5, 4, 3, 2, 1
+B: 
+C:
+0 moves 
+
+Move disk 1 from A to C
+A: 5, 4, 3, 2
+B: 
+C: 1
+1 move
+
+Move disk 2 from A to B
+A: 5, 4, 3
+B: 2
+C: 1
+2 moves
+
+Move disk 1 from C to B
+A: 5, 4, 3
+B: 2, 1
+C:
+3 moves
+
+Move disk 3 from A to C
+A: 5, 4, 
+B: 2, 1
+C: 3
+4 moves
+
+Move disk 1 from B to A
+A: 5, 4, 1
+B: 2
+C: 3
+5 moves
+
+Move disk 2 from B to C
+A: 5, 4, 1
+B: 
+C: 3, 2
+6 moves
+
+Move disk 1 from A to C
+A: 5, 4
+B:
+C: 3, 2, 1
+7 moves
+
+
 How many moves are needed to complete the puzzle with 3 disks? with 4 disks? with 5 disks?
+
+3 disks: 7
+4 disks: 15
+5 disks: 31
+
 What is the runtime of your algorithm?
+O(2^n) exponential The number of steps doubles (plus one) for every disk added.
+
+
+
 12. Iterative version
 Solve the drills 1 - 7 from your previous checkpoint (Recursion) iteratively.
 
