@@ -333,9 +333,25 @@ O(2^n) exponential The number of steps doubles (plus one) for every disk added.
 12. Iterative version
 Solve the drills 1 - 7 from your previous checkpoint (Recursion) iteratively.
 
+See 'iterative-drills.js'
+
 13. Recursive Big O
 Take your solutions from the recursive exercises that you completed in the previous checkpoint and identify the time complexities (big O) of each of them.
+
+1. O(n) - Each sheep takes 1 step
+2. O(n) - Each time we add 1 to the exponent, we add 1 step
+3. O(n) - Each additional character in the string adds 1 step
+4. O(n) - Each time n increases by 1, we need 1 more step to complete the recursion
+5. O(n) - n is the number of splitters in the string. Each additional splitter adds 1 step
+6. O(2n): Each recursion calls itself twice (2n), When n increases by 1, the number of recursions increases by 1.
+7. O(n) - The number of steps (recursions) is equal to n
+8. O(n) - PLEASE CLARIFY
+9. O(n * k) - PLEASE CLARIFY
+10. O(n!) - PLEASE CLARIFY
+11. O(n) - PLEASE CLARIFY
+12. O(n) - Each time you add 1 to n, you need to call toBinary 1 extra time
 
 14. Iterative Big O
 Take your solutions from the iterative exercises today and identify the time complexities (big O) of each of them.
 
+See 'iterative-drills.js'
