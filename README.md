@@ -1,15 +1,15 @@
 # DSA-Big-O
 
 ## 1. What is the Big O for this?
-    1) Determine the Big O for the following algorithm: You are sitting in a room with 15 people. You want to find a playmate for your dog, preferably of the same breed. So you want to know if anyone out of the 15 people have the same breed as your dog. You stand up and yell out, who here has a golden retriever and would like to be a playdate for my golden. Someone yells - "I do, be happy to bring him over"
+1) Determine the Big O for the following algorithm: You are sitting in a room with 15 people. You want to find a playmate for your dog, preferably of the same breed. So you want to know if anyone out of the 15 people have the same breed as your dog. You stand up and yell out, who here has a golden retriever and would like to be a playdate for my golden. Someone yells - "I do, be happy to bring him over"
 
-    Constant time: one action, one result - Asking 1 person takes the same amount of time as asking 15 people.
+Constant time: one action, one result - Asking 1 person takes the same amount of time as asking 15 people.
 
-    2) Determine the Big O for the following algorithm: You are sitting in a room with 15 people. You want to find a playmate for your dog who is of the same breed. So you want to know if anyone out of the 15 people have the same breed as your dog. You start with the first person and ask him if he has a golden retriever. He says no, then you ask the next person, and the next, and the next until you find someone who has a golden or there is no one else to ask.
+2) Determine the Big O for the following algorithm: You are sitting in a room with 15 people. You want to find a playmate for your dog who is of the same breed. So you want to know if anyone out of the 15 people have the same breed as your dog. You start with the first person and ask him if he has a golden retriever. He says no, then you ask the next person, and the next, and the next until you find someone who has a golden or there is no one else to ask.
 
-    Linear time: As the number of people increases, the steps increase at the same rate - Asking 2 people takes twice as long as asking 1 person; asking 15 people takes 15 times longer than asking 1 person.
+Linear time: As the number of people increases, the steps increase at the same rate - Asking 2 people takes twice as long as asking 1 person; asking 15 people takes 15 times longer than asking 1 person.
 
-2. Even or odd
+## 2. Even or odd
 
 What is the Big O of the following algorithm? Explain your answer
 
@@ -24,7 +24,7 @@ What is the Big O of the following algorithm? Explain your answer
 
 Constant time, because the number of operations doesn't change based on the input
 
-3. Are you here?
+## 3. Are you here?
 
 What is the Big O of the following algorithm? Explain your answer
 
@@ -42,7 +42,7 @@ What is the Big O of the following algorithm? Explain your answer
 O(n^2) Polynomial Time. For each n element in arr1 we have to perform k operations in arr2.
 
 
-4. Doubler
+## 4. Doubler
 
 What is the Big O of the following algorithm? Explain your answer
 
@@ -56,7 +56,7 @@ What is the Big O of the following algorithm? Explain your answer
 O(n) Linear time. We perform one operation per element in the array, so our operations grow at the same rate as the input.
 
 
-5. Naive search
+## 5. Naive search
 
 What is the Big O of the following algorithm? Explain your answer
 
@@ -70,7 +70,7 @@ What is the Big O of the following algorithm? Explain your answer
 
 O(n) Linear time. As the array grows, we perform one extra operation for each new element.
 
-6. Creating pairs:
+## 6. Creating pairs:
 
 What is the Big O of the following algorithm? Explain your answer
 
@@ -84,7 +84,7 @@ What is the Big O of the following algorithm? Explain your answer
 
 O(n^2) Polynomial time. We loop over the array once for each element in the array. This one is a bit odd because it doesn't loop over the whole array every time. The second loop only performs arr.length / 2 operations.
 
-7. Compute the sequence
+## 7. Compute the sequence
 
 What does the following algorithm do? What is its runtime complexity? Explain your answer
 
@@ -107,7 +107,7 @@ What does the following algorithm do? What is its runtime complexity? Explain yo
 
 O(n) Linear time. Adds the previous two answers together, creating a fibbonacci sequence. Returns array of fibonacci sequence arrays with lengths of 1, 2, 3, 4, etc. all the way to num.
 
-8. An efficient search
+## 8. An efficient search
 
 In this example, we return to the problem of searching using a more sophisticated approach than in naive search, above. Assume that the input array is always sorted. What is the Big O of the following algorithm? Explain your answer
 
@@ -136,7 +136,7 @@ In this example, we return to the problem of searching using a more sophisticate
 
 O(log n) because it is using Divide and Conquer to halve the input until it finds the item
 
-9. Random element
+## 9. Random element
 
 What is the Big O of the following algorithm? Explain your answer
 
@@ -146,7 +146,7 @@ What is the Big O of the following algorithm? Explain your answer
 
 O(1) constant time. Accessing an array by index doesn't require any iteration. The computer simply looks at the pointer bound to the array, goes to that memory address, and then grabs the nth element in that array.
 
-10. What Am I?
+## 10. What Am I?
 
 What does the following algorithm do? What is the Big O of the following algorithm? Explain your answer
 
@@ -162,7 +162,7 @@ What does the following algorithm do? What is the Big O of the following algorit
 
 If the number is less than two, or if the number is not an integer, return false. If the number is evenly divisible by any number between 2 and itself, return false. So the function will return true only if the number passed to it is a prime number. The Big O is linear, O(n). As the input grows, the number of operations performed by the for loop grows at the same rate.
 
-11. Tower of Hanoi
+## 11. Tower of Hanoi
 
 The Tower of Hanoi is a very famous mathematical puzzle (some call it game!). This is how it goes:
 
@@ -334,7 +334,9 @@ If you are given 5 disks, how do the rods look like after 7 recursive calls?
 How many moves are needed to complete the puzzle with 3 disks? with 4 disks? with 5 disks?
 
 3 disks: 7
+
 4 disks: 15
+
 5 disks: 31
 
 What is the runtime of your algorithm?
@@ -342,28 +344,28 @@ O(2^n) exponential The number of steps doubles (plus one) for every disk added.
 
 
 
-12. Iterative version
+## 12. Iterative version
 Solve the drills 1 - 7 from your previous checkpoint (Recursion) iteratively.
 
 See 'iterative-drills.js'
 
-13. Recursive Big O
+## 13. Recursive Big O
 Take your solutions from the recursive exercises that you completed in the previous checkpoint and identify the time complexities (big O) of each of them.
 
-    1. O(n) - Each sheep takes 1 step
-    2. O(n) - Each time we add 1 to the exponent, we add 1 step
-    3. O(n) - Each additional character in the string adds 1 step
-    4. O(n) - Each time n increases by 1, we need 1 more step to complete the recursion
-    5. O(n) - n is the number of splitters in the string. Each additional splitter adds 1 step
-    6. O(2n): Each recursion calls itself twice (2n), When n increases by 1, the number of recursions increases by 1.
-    7. O(n) - The number of steps (recursions) is equal to n
-    8. O(n) - PLEASE CLARIFY
-    9. O(n * k) - PLEASE CLARIFY
-    10. O(n!) - PLEASE CLARIFY
-    11. O(n) - PLEASE CLARIFY
-    12. O(n) - Each time you add 1 to n, you need to call toBinary 1 extra time
+1. O(n) - Each sheep takes 1 step
+2. O(n) - Each time we add 1 to the exponent, we add 1 step
+3. O(n) - Each additional character in the string adds 1 step
+4. O(n) - Each time n increases by 1, we need 1 more step to complete the recursion
+5. O(n) - n is the number of splitters in the string. Each additional splitter adds 1 step
+6. O(2n): Each recursion calls itself twice (2n), When n increases by 1, the number of recursions increases by 1.
+7. O(n) - The number of steps (recursions) is equal to n
+8. O(n) - PLEASE CLARIFY
+9. O(n * k) - PLEASE CLARIFY
+10. O(n!) - PLEASE CLARIFY
+11. O(n) - PLEASE CLARIFY
+12. O(n) - Each time you add 1 to n, you need to call toBinary 1 extra time
 
-14. Iterative Big O
+## 14. Iterative Big O
 Take your solutions from the iterative exercises today and identify the time complexities (big O) of each of them.
 
 See 'iterative-drills.js'
