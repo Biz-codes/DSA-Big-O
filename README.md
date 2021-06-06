@@ -10,6 +10,7 @@
     Linear time: As the number of people increases, the steps increase at the same rate - Asking 2 people takes twice as long as asking 1 person; asking 15 people takes 15 times longer than asking 1 person.
 
 2. Even or odd
+
 What is the Big O of the following algorithm? Explain your answer
 
 `function isEven(value) {
@@ -20,6 +21,7 @@ What is the Big O of the following algorithm? Explain your answer
         return false;
     }
 }`
+
 Constant time, because the number of operations doesn't change based on the input
 
 3. Are you here?
