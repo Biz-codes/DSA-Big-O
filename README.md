@@ -361,10 +361,10 @@ Take your solutions from the recursive exercises that you completed in the previ
 5. O(n) - n is the number of splitters in the string. Each additional splitter adds 1 step
 6. O(2n): Each recursion calls itself twice (2n), When n increases by 1, the number of recursions increases by 1.
 7. O(n) - The number of steps (recursions) is equal to n
-8. O(n) - PLEASE CLARIFY
-9. O(n * k) - PLEASE CLARIFY
-10. O(n!) - PLEASE CLARIFY
-11. O(n) - PLEASE CLARIFY
+8. O(n) - There is no loop inside another
+9. O(n^2) - mazeRunnerAll() is called inside a for loop
+10. O(n^3) - 3 loops nested inside each other
+11. O(n) - Each object requires 1 step
 12. O(n) - Each time you add 1 to n, you need to call toBinary 1 extra time
 
 ## 14. Iterative Big O
